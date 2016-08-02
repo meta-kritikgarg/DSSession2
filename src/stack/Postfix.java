@@ -6,12 +6,20 @@ public class Postfix {
 	String output= "";
 	MyStack<Character> charStack;
 	
+	//Constructor
+	/**
+	 * @param input infix String to convert 
+	 */
 	public Postfix(String input) {
 		charStack = new MyStack<Character>();
 		this.input = input;
 	}
 	
-	
+
+	/**
+	 * To get postfix string
+	 * @return string
+	 */
 	public String getPostfix() {
 		 for (int j = 0; j < input.length(); j++) {
 	         char ch = input.charAt(j);
@@ -45,6 +53,11 @@ public class Postfix {
 	}
 		 
 	
+	/**
+	 * To get elements from stack according to precedent
+	 * @param currentOP char current operator
+	 * @return String
+	 */
 	public String getOperator(char currentOP) {
 		String output = "";
 		if(charStack.getTop()==null) {
@@ -63,6 +76,10 @@ public class Postfix {
 	}
 	
 	
+	/**
+	 * To get all the elements till '(' or null
+	 * @return String
+	 */
 	public String getAll() {
 		String tmp = "";
 		while (charStack.getTop()!=null) {
@@ -72,16 +89,18 @@ public class Postfix {
 			}
 			tmp=tmp+charStack.pop();
 		}
-		
 		return tmp;
 	}
 	
-	
+
+	/*
+	 * To get precedent of an operator
+	 * @param Char operator
+	 */
 	private int prec(char x) {
 			if(x=='+'||x=='-') {
 				return 1;
 			}
-			
 			if(x=='*'||x=='/') {
 				return 2;
 			}

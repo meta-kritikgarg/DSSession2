@@ -13,6 +13,7 @@ public class MyLinkList<E> {
 	        size = 0;
 	    }
 	    
+	    
 	    /**
 	     * Function to check if list is empty
 	     * @return
@@ -20,6 +21,7 @@ public class MyLinkList<E> {
 	    public boolean isEmpty() {
 	        return start == null;
 	    }
+	    
 	    
 	    /**
 	     * to get size of list
@@ -88,6 +90,11 @@ public class MyLinkList<E> {
 	    }
 	    
 	    
+	    /**
+	     * Method to get by index value
+	     * @param index int
+	     * @return E
+	     */
 	    public E getByIndex(int index) {
 	    	if(size>index) {
 		    	 Node<E> tmp = start;
@@ -100,6 +107,7 @@ public class MyLinkList<E> {
 	    		return null;
 	    	}
 	    }
+	    
 	    
 	    /**
 	     * Function to delete an element at index
@@ -158,6 +166,9 @@ public class MyLinkList<E> {
 	    }
 	    
 	    
+	    /**
+	     * to reverse the link list 
+	     */
 	    public void revarsal() {
 	    	Node<E> previous = null;
 	    	Node<E> current = start;
@@ -168,34 +179,6 @@ public class MyLinkList<E> {
 	    		previous = tmp;
 	    	}
 	    	start = previous;
-		}
-	    
-	 
-	    
-	    /*  Function to display elements  */
-	    
-	    public void display()
-	    {
-	        System.out.print("\nSingly Linked List = ");
-	        if (size == 0) 
-	        {
-	            System.out.print("empty\n");
-	            return;
-	        }    
-	        if (start.getLink() == null) 
-	        {
-	            System.out.println(start.getData() );
-	            return;
-	        }
-	        Node ptr = start;
-	        System.out.print(start.getData()+ "->");
-	        ptr = start.getLink();
-	        while (ptr.getLink() != null)
-	        {
-	            System.out.print(ptr.getData()+ "->");
-	            ptr = ptr.getLink();
-	        }
-	        System.out.print(ptr.getData()+ "\n");
-	    }
-
+		}   
+ 
 }

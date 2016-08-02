@@ -1,9 +1,12 @@
 package queue;
 
+import java.util.ArrayList;
+
 public class Candidate {
 	
 	private String candidateName;
 	private int candidateRank;
+	ArrayList<Integer> choices = new ArrayList<Integer>();
 	
 	/**
 	 * Constructor to set up the fields of candidate
@@ -31,6 +34,17 @@ public class Candidate {
 	 */
 	public int getCandidateRank() {
 		return this.candidateRank;
+	}
+	
+	
+	/**
+	 * To add choices
+	 * @param c int
+	 */
+	public void addChoice(int c) {
+		if(!choices.contains(c)) {
+			choices.add(c);
+		}
 	}
 
 }

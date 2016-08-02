@@ -1,9 +1,12 @@
 package queue;
 
+import java.util.ArrayList;
+
 public class College {
 	
 	private String collegeName;
 	private int collegeRank , collegeSeats;
+	ArrayList<Candidate> candidateList = new ArrayList<Candidate>();
 	
 	/**
 	 * Constructor for setting up the name , rank and seats of college
@@ -15,6 +18,20 @@ public class College {
 		this.collegeName = collegeName;
 		this.collegeRank = collegeRank;
 		this.collegeSeats = collegeSeats;
+	}
+	
+	
+	/**
+	 * Method to add a candidate in list 
+	 * @param c Candidate
+	 */
+	public void addCandidate(Candidate c) {
+		if(candidateList.size()<collegeSeats) {
+			candidateList.add(c);
+		}
+		else {
+			throw new IndexOutOfBoundsException("No empty seat in college");
+		}
 	}
 	
 	
@@ -42,6 +59,27 @@ public class College {
 	 */
 	public int getCollegeSeats(){
 		return this.collegeSeats;
+	}
+	
+	
+	/**
+	 * Method to get empty seats in this college
+	 * @return
+	 */
+	public int getEmptySeats() {
+		return collegeSeats-candidateList.size();
+	}
+	
+	
+	/**
+	 * Method to check college is full or not
+	 * @return
+	 */
+	public boolean isFull() {
+		if(getEmptySeats()<=0) {
+			return true;
+		}
+		return false;
 	}
 
 }
