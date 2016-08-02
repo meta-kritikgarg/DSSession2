@@ -8,7 +8,7 @@ public class MyQueue<E> {
 	int front;
 	
 	public MyQueue(int size) {
-		if( size < 0 ){
+		if( size < 0 ) {
 			throw new IllegalArgumentException("Illegal Size: "+size);
 		}
 		data = new Object[size];
@@ -22,7 +22,7 @@ public class MyQueue<E> {
 	 * Method to add an item to queue
 	 * @param item
 	 */
-	public void enqueue(E e){
+	public void enqueue(E e) {
 		if (isFull()) {
 			throw new IndexOutOfBoundsException("Queue Overflow");
 		}
@@ -36,7 +36,7 @@ public class MyQueue<E> {
 	 * Method to removes an item from the front of the queue
 	 * @return If queue is empty returns null
 	 */
-	public Object dequeue(){
+	public Object dequeue() {
 		if (isEmpty()) {
 			throw new IndexOutOfBoundsException("Queue UnderFlow ");
 		}
